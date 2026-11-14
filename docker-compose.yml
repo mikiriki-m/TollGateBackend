@@ -1,0 +1,15 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: tollgate_db
+    environment:
+      POSTGRES_USER: toll_admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: tollgate
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
